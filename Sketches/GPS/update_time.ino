@@ -1,5 +1,5 @@
 
-extern void GPS_off();
+
 void update_time_from_gps(){
    //Serial.println("Updating ...");
    bool lights = lights_off();
@@ -13,9 +13,12 @@ void update_time_from_gps(){
            gps.location.lng();
            rtc.adjust(DateTime(gps.date.year(),gps.date.month(),gps.date.day(), gps.time.hour(),gps.time.minute(),gps.time.second()));
            digitalWrite(gps_failure, LOW);
+           digitalWrite(gps_failure, HIGH
+           );
+           digitalWrite(gps_power, LOW);
            //Serial.println();
            //Serial.println("Time Update sucessfull");
-           GPS_off();
+           
            run_ = time_try_gps_update;
            run_again = false;
            break;
@@ -37,6 +40,7 @@ void update_time_from_gps(){
         Serial.println();
         Serial.println("Failed To Update Time");
         digitalWrite(gps_failure, HIGH);
+        digitalWrite(gps_failure13, HIGH);
         break;
         
       }

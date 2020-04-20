@@ -39,16 +39,16 @@ class K155NA1{
           digitalWrite(pinD, HIGH);
           break;
         case 8:
-          digitalWrite(pinA, HIGH);
+          digitalWrite(pinA, LOW);
           digitalWrite(pinB, LOW);
           digitalWrite(pinC, LOW);
-          digitalWrite(pinD, LOW);
+          digitalWrite(pinD, HIGH);
           break;
         case 7:
-          digitalWrite(pinA, LOW);
+          digitalWrite(pinA, HIGH);
           digitalWrite(pinB, HIGH);
           digitalWrite(pinC, HIGH);
-          digitalWrite(pinD, HIGH);
+          digitalWrite(pinD, LOW);
           break;
         case 6:
           digitalWrite(pinA, LOW);
@@ -57,34 +57,34 @@ class K155NA1{
           digitalWrite(pinD, LOW);
           break;
         case 5:
-          digitalWrite(pinA, LOW);
-          digitalWrite(pinB, HIGH);
-          digitalWrite(pinC, LOW);
-          digitalWrite(pinD, HIGH);
+          digitalWrite(pinA, HIGH);
+          digitalWrite(pinB, LOW);
+          digitalWrite(pinC, HIGH);
+          digitalWrite(pinD, LOW);
           break;
        case 4:
           digitalWrite(pinA, LOW);
+          digitalWrite(pinB, LOW);
+          digitalWrite(pinC, HIGH);
+          digitalWrite(pinD, LOW);
+          break;
+       case 3:
+          digitalWrite(pinA, HIGH);
           digitalWrite(pinB, HIGH);
           digitalWrite(pinC, LOW);
           digitalWrite(pinD, LOW);
           break;
-       case 3:
-          digitalWrite(pinA, LOW);
-          digitalWrite(pinB, LOW);
-          digitalWrite(pinC, HIGH);
-          digitalWrite(pinD, HIGH);
-          break;
        case 2:
           digitalWrite(pinA, LOW);
-          digitalWrite(pinB, LOW);
-          digitalWrite(pinC, HIGH);
+          digitalWrite(pinB, HIGH);
+          digitalWrite(pinC, LOW);
           digitalWrite(pinD, LOW);
           break;
        case 1:
-          digitalWrite(pinA, LOW);
+          digitalWrite(pinA, HIGH);
           digitalWrite(pinB, LOW);
           digitalWrite(pinC, LOW);
-          digitalWrite(pinD, HIGH);
+          digitalWrite(pinD, LOW);
           break;
       }
    }

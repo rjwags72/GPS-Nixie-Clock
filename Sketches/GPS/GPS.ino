@@ -13,13 +13,12 @@ extern void GPS_on();
 
 
 //define some I/O's & baud rate
-#define gps_power 9
-#define Zulu_button 7
-#define gps_failure 8
 #define gps_ss Serial1
-
+static const byte gps_power = 2;
+static const byte gps_failure = 8;
+static const byte gps_failure13 = 13;
+static const byte Zulu_button = 7;
 static const uint32_t GPSBaud = 9600;
-static const uint32_t gps_rx = 2, gps_tx = 3;
 
 //define outputs to nixie driver
 K155NA1  sec0(46, 42, 40, 44);
@@ -40,7 +39,7 @@ double prev_sec = 0;
 int hr;
 int time_zone_hr_conversion_input = -5;
 int time_zone_hr_conversion = time_zone_hr_conversion_input;
-int time_try_gps_update_initial = 120;    //.1 sec * variable
+int time_try_gps_update_initial = 300;    //.1 sec * variable
 int time_try_gps_update;                  //.1 sec * variable
 int time_try_gps_update_reg = 120;        //.1 sec * variable
 bool Is_Zulu_Shown = false;
@@ -67,6 +66,8 @@ void setup ()
   digitalWrite(gps_power, HIGH);
   pinMode(gps_failure, OUTPUT);
   digitalWrite(gps_failure, LOW);
+  pinMode(gps_failure13, OUTPUT);
+  digitalWrite(gps_failure13, LOW);
 
   
   
@@ -101,7 +102,7 @@ void loop (){
       prev_sec = print_time();
     }
     if(((now.second() == 0) and (now.minute() == min_to_turn_gps_on) and ((now.hour() % hr_div_to_turn_gps_on) == 0))){
-      GPS_on;
+      digitalWrite(gps_power, HIGH);
     }
     if((now.second() == 0) and (now.minute() == min_to_sync) and ((now.hour() % hr_div_to_sync) == 0)){
       prev_sec = print_time();
